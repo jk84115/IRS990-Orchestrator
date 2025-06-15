@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced CMS Long-Term Care Facility Inspection Checklist</title>
+    <style>
+        /* Font imports for professional appearance */
+        @import url('https://fonts.googleapis.com/css2?family=Liberation+Sans:wght@400;700&display=swap');
+        
+        /* CSS Variables for consistent color scheme */
+        :root {
+            --utah-blue: #003366;
+            --cms-teal: #008080;
+            --soft-green: #4CAF50;
+            --soft-red: #D32F2F;
+            --neutral-gray-light: #F5F5F5;
+            --neutral-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+        }
+        
+        /* Print-optimized styles for 8.5"x11" with HTML-controlled margins */
+        @media print {
+            @page {
+                size: letter; /* 8.5"x11" */
+                margin: 0; /* No printer margins - HTML controls everything */
+            }
+            
+            body { 
+                margin: 0; 
+                font-size: 11pt;
+                line-height: 1.2;
+                max-width: none;
+                padding: 0.75in; /* HTML-controlled margins */
+                background: white;
+            }
+            
+            /* Page break controls */
+            .page-break { 
+                page-break-before: always; 
+                margin-top: 0;
+            }
+            
+            .page-break-after { page-break-after: always; }
+            .no-break { page-break-inside: avoid; }
+            .no-print { display: none; }
+            
+            /* Heading controls */
+            h1 { 
+                page-break-after: avoid;
+                page-break-before: always;
+                margin-top: 0;
+                margin-bottom: 15pt;
+                font-size: 20pt;
+            }
+            
+            h2 { 
+                page-break-after: avoid;
+                margin-top: 15pt;
+                margin-bottom: 10pt;
+                font-size: 16pt;
+            }
+            
+            h3 { 
+                page-break-after: avoid;
+                margin-top: 12pt;
+                margin-bottom: 8pt;
+                font-size: 14pt;
+            }
+            
+            h4 {
+                page-break-after: avoid;
+                margin-top: 10pt;
+                margin-bottom: 6pt;
+            }
+            
+            /* Table controls */
+            table { 
+                page-break-inside: avoid;
+                margin: 10pt 0;
+                font-size: 10pt;
+            }
+            
+            /* Large tables can break */
+            .breakable-table {
+                page-break-inside: auto;
+            }
+            
+            .breakable-table thead {
+                display: table-header-group;
+            }
+            
+            .breakable-table tr {
+                page-break-inside: avoid;
+            }
+            
+            /* Assessment sections */
+            .assessment-section {
+                page-break-inside: avoid;
+                margin: 15pt 0;
+                padding: 10pt;
+            }
+            
+            /* Large sections that can break */
+            .breakable-section {
+                page-break-inside: auto;
+            }
+            
+            /* Alert boxes */
+            .alert {
+                page-break-inside: avoid;
+                margin: 8pt 0;
+                padding: 8pt;
+            }
+            
+            .critical-finding {
+                page-break-inside: avoid;
+                margin: 10pt 0;
+                padding: 10pt;
+            }
+            
+            /* Cover page specific */
+            .cover-page {
+                height: 100vh;
+                page-break-after: always;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            /* TOC specific */
+            .toc {
+                page-break-after: always;
+            }
+            
+            /* Header and footer for print - positioned within HTML margins */
+            .header {
+                position: fixed;
+                top: 0.25in; /* Within our HTML margin */
+                left: 0.75in;
+                right: 0.75in;
+                height: 0.4in;
+                font-size: 9pt;
+                border-bottom: 1px solid #003366;
+                background: white;
+                z-index: 1000;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 10pt;
+            }
+            
+            .footer {
+                position: fixed;
+                bottom: 0.25in; /* Within our HTML margin */
+                left: 0.75in;
+                right: 0.75in;
+                height: 0.4in;
+                font-size: 9pt;
+                border-top: 1px solid #003366;
+                background: white;
+                z-index: 1000;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 10pt;
+            }
+            
+            /* Content margin to avoid header/footer overlap */
+            .page-content {
+                margin-top: 0.8in; /* Space for header */
+                margin-bottom: 0.8in; /* Space for footer */
+                min-height: calc(11in - 2.3in); /* Full page minus margins and header/footer */
+            }
+            
+            /* Adjust spacing for print */
+            .form-field {
+                margin: 5pt 10pt 5pt 0;
+            }
+            
+            .form-field input {
+                border-bottom: 1px solid #000 !important;
+                background: transparent !important;
+                min-width: 120pt;
+            }
+            
+            /* Checkbox styling for print */
+            .checkbox {
+                width: 12pt;
+                height: 12pt;
+                border: 1.5pt solid #003366;
+                margin-right: 6pt;
+            }
+            
+            /* Signature fields */
+            .signature-line {
+                border-bottom: 1pt solid #000 !important;
+                height: 15pt;
+            }
+            
+            /* Icon adjustments */
+            .icon {
+                width: 15pt;
+                height: 15pt;
+                font-size: 10pt;
+                line-height: 15pt;
+            }
+            
+            /* Reduce spacing for print efficiency */
+            ul, ol {
+                margin: 8pt 0;
+                padding-left: 20pt;
+            }
+            
+            li {
+                margin: 4pt 0;
+            }
+            
+            /* Ensure colors and graphics print properly */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Enhanced table borders for print */
+            table, th, td {
+                border-collapse: collapse;
+                border: 1pt solid #333 !important;
+            }
+            
+            /* Ensure background colors print */
+            .alert, .critical-finding, .assessment-section {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Cover page specific print handling */
+            .cover-page {
+                height: calc(11in - 1.5in); /* Full page minus margins */
+                page-break-after: always;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* TOC specific */
+            .toc {
+                page-break-after: always;
+                max-height: calc(11in - 2.3in); /* Fit within page margins */
+            }
+            
+            /* Improved form field printing */
+            input[type="text"], input[type="date"], input[type="number"], select, textarea {
+                border: none !important;
+                border-bottom: 1pt solid #000 !important;
+                background: transparent !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Checkbox and radio styling for print */
+            .checkbox {
+                width: 10pt !important;
+                height: 10pt !important;
+                border: 1.5pt solid #000 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Hide screen-only elements */
+            .no-print, .form-controls, .nav-buttons {
+                display: none !important;
+            }
+        }
+        
+        /* Base typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.3;
+            color: var(--text-dark);
+            background: var(--white);
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.75in;
+        }
+        
+        /* Header and footer styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--utah-blue);
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid var(--neutral-gray);
+            text-align: center;
+            font-size: 10pt;
+            color: var(--utah-blue);
+        }
+        
+        /* Cover page styles */
+        .cover-page {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--utah-blue) 0%, var(--cms-teal) 100%);
+            color: var(--white);
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .cover-title {
+            font-size: 28pt;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .cover-subtitle {
+            font-size: 18pt;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cover-details {
+            font-size: 14pt;
+            margin-top: 40px;
+        }
+        
+        .confidential-label {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--soft-red);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+        
+        /* Typography hierarchy */
+        h1 {
+            font-size: 22pt;
+            font-weight: bold;
+            color: var(--utah-blue);
+            margin: 30px 0 20px 0;
+            text-align: left;
+            border-left: 5px solid var(--cms-teal);
+            padding-left: 15px;
+        }
+        
+        h2 {
+            font-size: 18pt;
+            font-weight: bold;
+            color: var(--cms-teal);
+            margin: 25px 0 15px 0;
+            text-align: left;
+        }
+        
+        h3 {
+            font-size: 15pt;
+            font-weight: bold;
+            color: var(--utah-blue);
+            margin: 20px 0 10px 0;
+            text-align: left;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: var(--neutral-gray-light);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+        
+        .toc h2 {
+            color: var(--utah-blue);
+            border-bottom: 2px solid var(--cms-teal);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px dotted var(--neutral-gray);
+        }
+        
+        .toc-item a {
+            color: var(--utah-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .toc-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Department color coding */
+        .dept-maintenance { border-left: 5px solid #2196F3; }
+        .dept-housekeeping { border-left: 5px solid var(--soft-green); }
+        .dept-laundry { border-left: 5px solid var(--cms-teal); }
+        .dept-safety { border-left: 5px solid #9C27B0; }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: var(--utah-blue);
+            color: var(--white);
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--neutral-gray);
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background: var(--neutral-gray-light);
+        }
+        
+        tr:hover {
+            background: rgba(0, 128, 128, 0.1);
+        }
+        
+        /* Enhanced form styling for digital completion */
+        .form-field {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .form-field label {
+            font-weight: bold;
+            color: var(--utah-blue);
+            display: block;
+            margin-bottom: 3px;
+            font-size: 11pt;
+        }
+        
+        .form-field input, .form-field select, .form-field textarea {
+            border: 1px solid var(--neutral-gray);
+            border-radius: 3px;
+            background: var(--white);
+            padding: 5px 8px;
+            font-size: 11pt;
+            min-width: 150px;
+            font-family: inherit;
+        }
+        
+        .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+            border-color: var(--cms-teal);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2);
+        }
+        
+        .form-field.required label::after {
+            content: " *";
+            color: var(--soft-red);
+        }
+        
+        .form-field input.invalid {
+            border-color: var(--soft-red);
+            background-color: rgba(211, 47, 47, 0.1);
+        }
+        
+        .form-field input.valid {
+            border-color: var(--soft-green);
+        }
+        
+        /* Enhanced checkboxes */
+        .checkbox-container {
+            display: inline-flex;
+            align-items: center;
+            margin: 5px 10px 5px 0;
+            cursor: pointer;
+        }
+        
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--utah-blue);
+            display: inline-block;
+            margin-right: 8px;
+            position: relative;
+            background: var(--white);
+            cursor: pointer;
+            border-radius: 2px;
+        }
+        
+        .checkbox input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        
+        .checkbox input[type="checkbox"]:checked + .checkmark::after {
+            content: "✓";
+            position: absolute;
+            top: -2px;
+            left: 3px;
+            color: var(--utah-blue);
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .checkbox-label {
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        /* Radio button groups */
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .radio-option input[type="radio"] {
+            margin-right: 5px;
+        }
+        
+        /* Text areas for notes */
+        .notes-field {
+            width: 100%;
+            min-height: 80px;
+            padding: 10px;
+            border: 1px solid var(--neutral-gray);
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 11pt;
+            resize: vertical;
+        }
+        
+        .notes-field:focus {
+            border-color: var(--cms-teal);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2);
+        }
+        
+        /* Progress indicator */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--neutral-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cms-teal), var(--soft-green));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Section completion indicators */
+        .section-status {
+            float: right;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+        
+        .section-complete {
+            background: var(--soft-green);
+            color: white;
+        }
+        
+        .section-incomplete {
+            background: var(--soft-red);
+            color: white;
+        }
+        
+        .section-partial {
+            background: #FFA726;
+            color: white;
+        }
+        
+        /* Form controls panel */
+        .form-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+            border: 2px solid var(--utah-blue);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            min-width: 200px;
+        }
+        
+        .form-controls h4 {
+            margin: 0 0 10px 0;
+            color: var(--utah-blue);
+            font-size: 14pt;
+        }
+        
+        .control-button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background: var(--utah-blue);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 11pt;
+            transition: background 0.2s;
+        }
+        
+        .control-button:hover {
+            background: var(--cms-teal);
+        }
+        
+        .control-button.secondary {
+            background: var(--neutral-gray);
+            color: var(--text-dark);
+        }
+        
+        .control-button.secondary:hover {
+            background: var(--cms-teal);
+            color: var(--white);
+        }
+        
+        /* Enhanced dropdown styling */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 16px;
+            padding-right: 30px;
+        }
+        
+        /* Date and time inputs */
+        input[type="date"], input[type="time"], input[type="datetime-local"] {
+            min-width: 150px;
+        }
+        
+        /* Assessment result indicators */
+        .assessment-result {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0;
+        }
+        
+        .result-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .result-pass {
+            background: var(--soft-green);
+            color: white;
+        }
+        
+        .result-fail {
+            background: var(--soft-red);
+            color: white;
+        }
+        
+        .result-warning {
+            background: #FFA726;
+            color: white;
+        }
+        
+        .result-na {
+            background: var(--neutral-gray);
+            color: var(--text-dark);
+        }
+        
+        /* Icons and visual cues */
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+        
+        .icon-red-flag {
+            background: var(--soft-red);
+            color: var(--white);
+        }
+        
+        .icon-success {
+            background: var(--soft-green);
+            color: var(--white);
+        }
+        
+        .icon-warning {
+            background: #FFA726;
+            color: var(--white);
+        }
+        
+        .icon-info {
+            background: var(--cms-teal);
+            color: var(--white);
+        }
+        
+        /* Alert boxes and callouts */
+        .alert {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 5px solid;
+        }
+        
+        .alert-red {
+            background: rgba(211, 47, 47, 0.1);
+            border-color: var(--soft-red);
+            color: var(--soft-red);
+        }
+        
+        .alert-green {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: var(--soft-green);
+            color: var(--soft-green);
+        }
+        
+        .alert-warning {
+            background: rgba(255, 167, 38, 0.1);
+            border-color: #FFA726;
+            color: #F57C00;
+        }
+        
+        .alert-info {
+            background: rgba(0, 128, 128, 0.1);
+            border-color: var(--cms-teal);
+            color: var(--cms-teal);
+        }
+        
+        /* Assessment sections */
+        .assessment-section {
+            background: var(--neutral-gray-light);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 5px solid var(--cms-teal);
+        }
+        
+        /* Critical findings highlight */
+        .critical-finding {
+            background: rgba(211, 47, 47, 0.1);
+            border: 2px solid var(--soft-red);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .critical-finding::before {
+            content: "⚠️ CRITICAL FINDING: ";
+            font-weight: bold;
+            color: var(--soft-red);
+        }
+        
+        /* Signature fields */
+        .signature-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--neutral-gray-light);
+            border-radius: 5px;
+        }
+        
+        .signature-field {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .signature-field label {
+            font-weight: bold;
+            min-width: 150px;
+            margin-right: 20px;
+        }
+        
+        .signature-line {
+            flex: 1;
+            border-bottom: 1px solid var(--text-dark);
+            height: 20px;
+            margin-right: 20px;
+        }
+        
+        /* Lists and bullet points */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+        
+        /* Emphasis and formatting */
+        .bold { font-weight: bold; }
+        .red-text { color: var(--soft-red); }
+        .green-text { color: var(--soft-green); }
+        .blue-text { color: var(--utah-blue); }
+        .teal-text { color: var(--cms-teal); }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Navigation buttons */
+        .nav-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .nav-button {
+            background: var(--utah-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 11pt;
+        }
+        
+        .nav-button:hover {
+            background: var(--cms-teal);
+        }
+    </style>
+</head>
+<body>
+    <!-- Document Header (screen only) -->
+    <div class="header no-print">
+        <div>
+            <strong>Enhanced CMS Inspection Checklist v2.1</strong><br>
+            Utah Department of Health & Human Services
+        </div>
+        <div style="text-align: right;">
+            <strong>Page <span id="page-number">1</span></strong><br>
+            <span id="current-date"></span>
+        </div>
+    </div>
+    
+    <!-- Print-only Header -->
+    <div class="print-header no-screen">
+        <div><strong>Enhanced CMS Inspection Checklist v2.1</strong> | Utah Department of Health & Human Services</div>
+        <div><strong>Page <span class="page-counter">1</span></strong> | <span id="current-date-print"></span></div>
+    </div>
+    
+    <!-- Print-only Footer -->
+    <div class="print-footer no-screen">
+        <div><strong>CONFIDENTIAL DOCUMENT</strong> - For Official Use Only</div>
+    </div>
+
+    <!-- Print Instructions Banner -->
+    <div class="no-print" style="background: linear-gradient(90deg, #003366, #008080); color: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <h3 style="margin: 0 0 10px 0;">🖨️ PRINT SETUP INSTRUCTIONS</h3>
+        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 12pt;">
+            <div><strong>📄 Paper:</strong> Letter (8.5×11)</div>
+            <div><strong>📏 Margins:</strong> None</div>
+            <div><strong>📊 Scale:</strong> 100%</div>
+            <div><strong>🎨 Graphics:</strong> On</div>
+        </div>
+        <div style="margin-top: 8px; font-size: 11pt; opacity: 0.9;">
+            Setting margins to "None" lets the HTML control perfect formatting!
+        </div>
+    </div>
+
+    <!-- Form Controls Panel -->
+    <div class="form-controls no-print" id="formControls">
+        <h4>📋 Inspection Control</h4>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div id="progressText">0% Complete</div>
+        
+        <button class="control-button" onclick="autoFillSample()">📝 Load Sample Data</button>
+        <button class="control-button" onclick="validateForm()">✅ Validate Form</button>
+        <button class="control-button" onclick="saveFormData()">💾 Save Progress</button>
+        <button class="control-button" onclick="loadFormData()">📂 Load Saved</button>
+        <button class="control-button" onclick="clearForm()">🗑️ Clear All</button>
+        <button class="control-button" onclick="preparePDFExport()">🖨️ Print to PDF</button>
+        
+        <div style="margin-top: 15px; padding: 10px; background: #f0f8ff; border-radius: 4px; font-size: 9pt;">
+            <strong>📋 Print Settings:</strong><br>
+            • Set margins to <strong>"None"</strong><br>
+            • Paper: Letter (8.5 x 11)<br>
+            • Scale: 100%<br>
+            • Background graphics: On
+        </div>
+        
+        <div style="margin-top: 10px; font-size: 10pt; color: #666;">
+            <div>⌨️ Ctrl+S: Quick Save</div>
+            <div>⌨️ Ctrl+P: Print</div>
+            <div>⌨️ Ctrl+Z: Clear Last</div>
+        </div>
+        
+        <button class="control-button secondary" onclick="toggleControls()" style="margin-top: 10px;">
+            ⚙️ Hide Panel
+        </button>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="page-content">
+
+    <!-- Navigation and Print Controls -->
+    <div class="nav-buttons no-print">
+        <button class="nav-button" onclick="window.print()">🖨️ Print to PDF</button>
+        <button class="nav-button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️ Top</button>
+        <button class="nav-button" onclick="document.getElementById('signatures').scrollIntoView({behavior: 'smooth'})">✍️ Signatures</button>
+    </div>
+
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="cover-title">Enhanced CMS Long-Term Care Facility<br>Systemic Red Flag Inspection Checklist</div>
+        <div class="cover-subtitle">Utah-Specific Fraud Detection Framework<br>43-Bed Facility Adaptation</div>
+        
+        <div class="cover-details">
+            <div class="form-field required">
+                <label for="facilityName">Facility Name:</label>
+                <input type="text" id="facilityName" name="facilityName" required aria-label="Facility Name" style="min-width: 300px;">
+            </div>
+            <br><br>
+            <div class="form-field required">
+                <label for="inspectionDate">Inspection Date:</label>
+                <input type="date" id="inspectionDate" name="inspectionDate" required aria-label="Inspection Date">
+            </div>
+            <br><br>
+            <div class="form-field required">
+                <label for="inspectorName">Inspector Name:</label>
+                <input type="text" id="inspectorName" name="inspectorName" required aria-label="Inspector Name" style="min-width: 250px;">
+            </div>
+            <br><br>
+            <div class="form-field">
+                <label for="inspectorTitle">Inspector Title:</label>
+                <input type="text" id="inspectorTitle" name="inspectorTitle" aria-label="Inspector Title" placeholder="e.g., Senior Compliance Officer" style="min-width: 250px;">
+            </div>
+            <br><br>
+            <div class="form-field">
+                <label for="inspectionType">Inspection Type:</label>
+                <select id="inspectionType" name="inspectionType" aria-label="Inspection Type">
+                    <option value="">Select Inspection Type</option>
+                    <option value="routine">Routine Inspection</option>
+                    <option value="complaint">Complaint Investigation</option>
+                    <option value="follow-up">Follow-up Inspection</option>
+                    <option value="initial">Initial Certification</option>
+                    <option value="emergency">Emergency Response</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="confidential-label">CONFIDENTIAL</div>
+    </div>
+    
+    <!-- Document Header -->
+    <div class="header">
+        <div>
+            <strong>Enhanced CMS Inspection Checklist v2.1</strong><br>
+            Utah Department of Health & Human Services
+        </div>
+        <div style="text-align: right;">
+            <strong>Page <span id="page-number">1</span></strong><br>
+            <span id="current-date"></span>
+        </div>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="toc page-break no-break">
+        <h2><span class="icon icon-info">📋</span>Table of Contents</h2>
+        
+        <div class="toc-item">
+            <a href="#pre-interview">Pre-Interview Assessment</a>
+            <span>Page 3</span>
+        </div>
+        <div class="toc-item">
+            <a href="#budget-investigation">Budget Adequacy Investigation</a>
+            <span>Page 4</span>
+        </div>
+        <div class="toc-item">
+            <a href="#compliance-deficiency">Compliance Deficiency Investigation</a>
+            <span>Page 6</span>
+        </div>
+        <div class="toc-item dept-maintenance">
+            <a href="#maintenance">I. Enhanced Maintenance Investigation</a>
+            <span>Page 8</span>
+        </div>
+        <div class="toc-item dept-housekeeping">
+            <a href="#housekeeping">II. Housekeeping Department</a>
+            <span>Page 12</span>
+        </div>
+        <div class="toc-item dept-laundry">
+            <a href="#laundry">III. Laundry Department</a>
+            <span>Page 14</span>
+        </div>
+        <div class="toc-item dept-safety">
+            <a href="#safety">IV. Safety & Emergency Preparedness</a>
+            <span>Page 16</span>
+        </div>
+        <div class="toc-item">
+            <a href="#consolidated-role">V. Consolidated Role Management</a>
+            <span>Page 18</span>
+        </div>
+        <div class="toc-item">
+            <a href="#resident-impact">Resident Care Impact Assessment</a>
+            <span>Page 20</span>
+        </div>
+        <div class="toc-item">
+            <a href="#financial-red-flags">VI. Financial Red Flags</a>
+            <span>Page 22</span>
+        </div>
+        <div class="toc-item">
+            <a href="#documentation">VII. Documentation Review</a>
+            <span>Page 24</span>
+        </div>
+        <div class="toc-item">
+            <a href="#wrap-up">VIII. Interview Wrap-up</a>
+            <span>Page 25</span>
+        </div>
+        <div class="toc-item">
+            <a href="#immediate-actions">Immediate Actions Required</a>
+            <span>Page 26</span>
+        </div>
+        <div class="toc-item">
+            <a href="#signatures">Inspector Signatures & Approvals</a>
+            <span>Page 28</span>
+        </div>
+    </div>
+    
+    <!-- Facility Information Section -->
+    <div class="assessment-section page-break">
+        <h2><span class="icon icon-info">📊</span>Facility Information</h2>
+        
+        <table>
+            <tr>
+                <th>Facility Details</th>
+                <th>Information</th>
+                <th>Verification</th>
+            </tr>
+            <tr>
+                <td><strong>Facility Size:</strong></td>
+                <td>
+                    <input type="number" id="facilityBeds" name="facilityBeds" value="43" min="1" max="500" style="width: 80px;" required> beds
+                </td>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox">
+                            <input type="checkbox" id="bedsVerified" name="bedsVerified">
+                            <span class="checkmark"></span>
+                        </div>
+                        <label for="bedsVerified" class="checkbox-label">Verified</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Interview Subject:</strong></td>
+                <td>
+                    <input type="text" id="interviewSubject" name="interviewSubject" value="Facilities & Operations Director (Multi-Department Role)" style="width: 100%;">
+                </td>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox">
+                            <input type="checkbox" id="positionConfirmed" name="positionConfirmed">
+                            <span class="checkmark"></span>
+                        </div>
+                        <label for="positionConfirmed" class="checkbox-label">Position Confirmed</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Departments Covered:</strong></td>
+                <td>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <div class="checkbox-container">
+                            <div class="checkbox">
+                                <input type="checkbox" id="deptMaintenance" name="departments" value="maintenance" checked>
+                                <span class="checkmark"></span>
+                            </div>
+                            <label for="deptMaintenance" class="checkbox-label">Maintenance</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <div class="checkbox">
+                                <input type="checkbox" id="deptHousekeeping" name="departments" value="housekeeping" checked>
+                                <span class="checkmark"></span>
+                            </div>
+                            <label for="deptHousekeeping" class="checkbox-label">Housekeeping</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <div class="checkbox">
+                                <input type="checkbox" id="deptLaundry" name="departments" value="laundry" checked>
+                                <span class="checkmark"></span>
+                            </div>
+                            <label for="deptLaundry" class="checkbox-label">Laundry</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <div class="checkbox">
+                                <input type="checkbox" id="deptSafety" name="departments" value="safety" checked>
+                                <span class="checkmark"></span>
+                            </div>
+                            <label for="deptSafety" class="checkbox-label">Safety</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <div class="checkbox">
+                                <input type="checkbox" id="deptEmergency" name="departments" value="emergency" checked>
+                                <span class="checkmark"></span>
+                            </div>
+                            <label for="deptEmergency" class="checkbox-label">Emergency Prep</label>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox">
+                            <input type="checkbox" id="allDepartments" name="allDepartments">
+                            <span class="checkmark"></span>
+                        </div>
+                        <label for="allDepartments" class="checkbox-label">All Departments</label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="alert alert-warning">
+            <strong><span class="icon icon-warning">⚠️</span>Small Facility Considerations:</strong>
+            <ul>
+                <li>Single person managing multiple departments is standard for 43-bed facilities</li>
+                <li>Resource constraints require adapted thresholds and expectations</li>
+                <li>Focus on efficiency and priority-based maintenance rather than departmental silos</li>
+                <li>Emphasize cross-training and backup systems due to limited staff</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Pre-Interview Assessment -->
+    <div id="pre-interview" class="page-break">
+        <h1><span class="icon icon-info">📝</span>Pre-Interview Assessment</h1>
+        
+        <div class="assessment-section">
+            <h3>Consolidated Role Recognition</h3>
+            
+            <div class="alert alert-info">
+                <strong>Question 1:</strong> "I understand you wear multiple hats here. Walk me through your typical day and which 'hat' you're wearing when."
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Red Flag Indicators</th>
+                    <th>Assessment</th>
+                    <th>Severity</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-red-flag">🚨</span> Unclear about which responsibilities fall under which role</td>
+                    <td>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="rf1_yes" name="redFlag1" value="identified">
+                                <label for="rf1_yes">Identified</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf1_no" name="redFlag1" value="not_present">
+                                <label for="rf1_no">Not Present</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf1_partial" name="redFlag1" value="partial">
+                                <label for="rf1_partial">Partial</label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <select name="rf1_severity">
+                            <option value="">Select</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="rf1_notes" style="width: 100%;" placeholder="Details..."></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-red-flag">🚨</span> No clear priorities when multiple departments need attention</td>
+                    <td>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="rf2_yes" name="redFlag2" value="identified">
+                                <label for="rf2_yes">Identified</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf2_no" name="redFlag2" value="not_present">
+                                <label for="rf2_no">Not Present</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf2_partial" name="redFlag2" value="partial">
+                                <label for="rf2_partial">Partial</label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <select name="rf2_severity">
+                            <option value="">Select</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="rf2_notes" style="width: 100%;" placeholder="Details..."></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-red-flag">🚨</span> No backup coverage when they're unavailable</td>
+                    <td>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="rf3_yes" name="redFlag3" value="identified">
+                                <label for="rf3_yes">Identified</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf3_no" name="redFlag3" value="not_present">
+                                <label for="rf3_no">Not Present</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf3_partial" name="redFlag3" value="partial">
+                                <label for="rf3_partial">Partial</label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <select name="rf3_severity">
+                            <option value="">Select</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="rf3_notes" style="width: 100%;" placeholder="Details..."></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-red-flag">🚨</span> Administrator makes decisions that should be within their expertise</td>
+                    <td>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="rf4_yes" name="redFlag4" value="identified">
+                                <label for="rf4_yes">Identified</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf4_no" name="redFlag4" value="not_present">
+                                <label for="rf4_no">Not Present</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="rf4_partial" name="redFlag4" value="partial">
+                                <label for="rf4_partial">Partial</label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <select name="rf4_severity">
+                            <option value="">Select</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="rf4_notes" style="width: 100%;" placeholder="Details..."></td>
+                </tr>
+            </table>
+            
+            <div class="alert alert-info">
+                <strong>Question 2:</strong> "How do you prioritize when you have competing needs across maintenance, housekeeping, laundry, and safety?"
+            </div>
+            
+            <h4>Look For:</h4>
+            <ul>
+                <li><span class="icon icon-success">✅</span> Clear decision-making framework (safety first, then care impact, then cost)</li>
+                <li><span class="icon icon-success">✅</span> Documentation of priority decisions</li>
+                <li><span class="icon icon-success">✅</span> Communication with nursing about operational impacts</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Budget Adequacy Investigation -->
+    <div id="budget-investigation" class="page-break">
+        <h1><span class="icon icon-red-flag">💰</span>Budget Adequacy Investigation</h1>
+        
+        <div class="critical-finding">
+            <strong>$800/MONTH MAINTENANCE BUDGET ASSESSMENT</strong><br><br>
+            
+            <table>
+                <tr>
+                    <th>Budget Analysis</th>
+                    <th>Amount</th>
+                    <th>Per Bed/Year</th>
+                </tr>
+                <tr>
+                    <td><strong>Current Budget:</strong></td>
+                    <td class="red-text">$800/month ($9,600 annually)</td>
+                    <td class="red-text">$223/bed/year</td>
+                </tr>
+                <tr>
+                    <td><strong>Industry Standard:</strong></td>
+                    <td class="green-text">$800-$1,300/bed/year</td>
+                    <td class="green-text">$34,400-$55,900 annually</td>
+                </tr>
+                <tr>
+                    <td><strong>Budget Gap:</strong></td>
+                    <td class="red-text"><strong>$24,800-$46,300 below recommended</strong></td>
+                    <td class="red-text"><strong>SEVERE UNDERFUNDING</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>Investigation Questions</h3>
+            
+            <div class="alert alert-red">
+                <strong>Question 1:</strong> "$800 per month appears below industry standards for a 43-bed facility. Are there additional maintenance funding sources in other budget categories?"
+            </div>
+            
+            <div class="critical-finding">
+                <strong>CRITICAL FINDINGS BASED ON INTERVIEW:</strong>
+                <ul>
+                    <li><span class="icon icon-red-flag">🚨</span> NO CAPITAL EXPENDITURE BUDGET IDENTIFIED</li>
+                    <li><span class="icon icon-red-flag">🚨</span> NO FORMAL CAPEX REQUEST PROCESS</li>
+                    <li><span class="icon icon-red-flag">🚨</span> NO PROCUREMENT CONTROLS (multiple quotes)</li>
+                    <li><span class="icon icon-red-flag">🚨</span> STAFF UNAWARE OF STANDARD FINANCIAL PROCESSES</li>
+                </ul>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Possible Responses</th>
+                    <th>Follow-up Action</th>
+                    <th>Risk Level</th>
+                </tr>
+                <tr>
+                    <td>"That's all I get"</td>
+                    <td><strong>CONFIRMED: No additional funding sources</strong></td>
+                    <td class="red-text">CRITICAL</td>
+                </tr>
+                <tr>
+                    <td>"Capital improvements are separate"</td>
+                    <td><strong>INVESTIGATION: No capital budget found</strong></td>
+                    <td class="red-text">HIGH</td>
+                </tr>
+                <tr>
+                    <td>"I don't know about capital expenditures"</td>
+                    <td><strong>RED FLAG: No formal process</strong></td>
+                    <td class="red-text">CRITICAL</td>
+                </tr>
+                <tr>
+                    <td>"The administrator handles everything"</td>
+                    <td><strong>RED FLAG: No financial controls</strong></td>
+                    <td class="red-text">CRITICAL</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <div class="alert alert-red">
+                <strong>Question 2:</strong> "With $800/month, what gets deferred? What can't you afford to fix?"
+            </div>
+            
+            <h4>Document specific examples:</h4>
+            <ul>
+                <li><span class="checkbox"></span> Equipment that's been broken for >30 days</li>
+                <li><span class="checkbox"></span> Safety hazards that "can't be afforded"</li>
+                <li><span class="checkbox"></span> Resident comfort issues postponed due to budget</li>
+            </ul>
+            
+            <div class="alert alert-red">
+                <strong>Question 3:</strong> "Has your maintenance budget always been $800/month, or was it cut?"
+            </div>
+            
+            <h4>Critical Timeline Analysis:</h4>
+            <table>
+                <tr>
+                    <th>Timeline Element</th>
+                    <th>Information Gathered</th>
+                    <th>Significance</th>
+                </tr>
+                <tr>
+                    <td>When was budget set at $800/month?</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Previous budget amounts</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Correlation with facility ownership/management changes</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Timing with regulatory violations or surveys</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Compliance Deficiency Investigation -->
+    <div id="compliance-deficiency" class="page-break">
+        <h1><span class="icon icon-red-flag">⚖️</span>Compliance Deficiency Investigation</h1>
+        
+        <div class="alert alert-info">
+            <strong>Inspector Background Validation:</strong> Inspector has professional experience as mechanical engineer in federal aerospace (requiring 3 vendor quotes) and pharmaceutical facilities (formal CapEx processes)
+        </div>
+        
+        <div class="critical-finding">
+            <strong>SIGNIFICANT COMPLIANCE DEFICIENCIES IDENTIFIED:</strong>
+            
+            <table>
+                <tr>
+                    <th>Deficiency Category</th>
+                    <th>Specific Violation</th>
+                    <th>Regulatory Impact</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">Employee Screening</td>
+                    <td>NO PRE-EMPLOYMENT DRUG TESTING (September 2024 start date)</td>
+                    <td>42 CFR § 483.12</td>
+                    <td><span class="checkbox"></span> Verified</td>
+                </tr>
+                <tr>
+                    <td>TB TESTING DELAYED 5 MONTHS (Required before employment, received February 2025)</td>
+                    <td>42 CFR § 483.80</td>
+                    <td><span class="checkbox"></span> Verified</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Emergency Preparedness</td>
+                    <td>EMERGENCY PREPAREDNESS PLAN DEFICIENCIES (Template-based rather than facility-specific)</td>
+                    <td>42 CFR § 483.73</td>
+                    <td><span class="checkbox"></span> Verified</td>
+                </tr>
+                <tr>
+                    <td>FIRE SAFETY INFRASTRUCTURE GAPS (No evacuation maps posted throughout building)</td>
+                    <td>NFPA 101</td>
+                    <td><span class="checkbox"></span> Verified</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Financial Controls</td>
+                    <td>NO FORMAL CAPEX REQUEST PROCESS EXISTS</td>
+                    <td>42 CFR § 483.75(f)</td>
+                    <td><span class="checkbox"></span> Verified</td>
+                </tr>
+                <tr>
+                    <td>NO MULTIPLE QUOTE REQUIREMENTS</td>
+                    <td>Procurement Standards</td>
+                    <td><span class="checkbox"></span> Verified</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>A. Capital Expenditure Process Investigation</h3>
+            
+            <div class="alert alert-red">
+                <strong>Question:</strong> "Walk me through how you would request funding for a major equipment purchase - say a $5,000 HVAC repair or $10,000 equipment replacement."
+            </div>
+            
+            <div class="critical-finding">
+                <strong>FINDINGS INDICATE:</strong>
+                <ul>
+                    <li><span class="icon icon-red-flag">🚨</span> NO FORMAL CAPEX REQUEST PROCESS EXISTS</li>
+                    <li><span class="icon icon-red-flag">🚨</span> NO BUDGET ALLOCATION FOR CAPITAL IMPROVEMENTS</li>
+                    <li><span class="icon icon-red-flag">🚨</span> NO KNOWLEDGE OF STANDARD PROCUREMENT PROCEDURES</li>
+                    <li><span class="icon icon-red-flag">🚨</span> NO MULTIPLE QUOTE REQUIREMENTS</li>
+                </ul>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Critical Follow-up Questions</th>
+                    <th>Response Received</th>
+                    <th>Risk Assessment</th>
+                </tr>
+                <tr>
+                    <td>"Who would you submit a capital expenditure request to?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> CRITICAL RED FLAG if "I don't know"</td>
+                </tr>
+                <tr>
+                    <td>"Do you have forms or procedures for requesting major equipment purchases?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> CONTROL FAILURE if no process</td>
+                </tr>
+                <tr>
+                    <td>"Are you required to get multiple quotes for purchases over a certain amount?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> PROCUREMENT VIOLATION</td>
+                </tr>
+                <tr>
+                    <td>"Is there a capital expenditure budget for this facility?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> FINANCIAL MISMANAGEMENT</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Comparison to Industry Standards</h3>
+            
+            <table>
+                <tr>
+                    <th>Federal/Pharmaceutical Standards (Inspector's Experience)</th>
+                    <th>Current Facility Status</th>
+                    <th>Compliance Gap</th>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-success">✅</span> Multiple vendor quotes required (typically 3 for purchases >$1,000)</td>
+                    <td><span class="icon icon-red-flag">❌</span> NO vendor quote requirements</td>
+                    <td class="red-text">CRITICAL</td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-success">✅</span> Formal CapEx request process with justification and approval hierarchy</td>
+                    <td><span class="icon icon-red-flag">❌</span> NO formal CapEx request process</td>
+                    <td class="red-text">CRITICAL</td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-success">✅</span> Annual capital budget allocation for equipment replacement/major repairs</td>
+                    <td><span class="icon icon-red-flag">❌</span> NO annual capital budget</td>
+                    <td class="red-text">CRITICAL</td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-success">✅</span> Documentation requirements for all purchases</td>
+                    <td><span class="icon icon-red-flag">❌</span> NO documentation standards</td>
+                    <td class="red-text">HIGH</td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-success">✅</span> Competitive bidding processes for major expenditures</td>
+                    <td><span class="icon icon-red-flag">❌</span> NO competitive bidding</td>
+                    <td class="red-text">CRITICAL</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Enhanced Maintenance Investigation -->
+    <div id="maintenance" class="page-break dept-maintenance">
+        <h1><span class="icon icon-info">🔧</span>I. Enhanced Maintenance Investigation (43-Bed Adaptation)</h1>
+        
+        <div class="assessment-section">
+            <h3>A. Resource Management Assessment</h3>
+            
+            <table class="breakable-table">
+                <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>43-Bed Expectation</th>
+                    <th>Red Flag Triggers</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>"What's your annual maintenance budget?"</strong></td>
+                    <td>$35K-$55K annually ($800-$1,300 per bed)</td>
+                    <td class="red-text"><strong>CRITICAL RED FLAG: $800/month ($9,600 annually = $223/bed)</strong></td>
+                    <td><strong>IMMEDIATE INVESTIGATION REQUIRED</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>"Show me your tool inventory."</strong></td>
+                    <td>Basic toolkit worth $3K-$8K</td>
+                    <td>&lt;$1K in tools or &gt;$15K in unused equipment</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>"How many vendors do you typically use?"</strong></td>
+                    <td>3-8 regular vendors</td>
+                    <td>Only 1-2 vendors (potential related-party) or &gt;15 vendors (lack of relationships)</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>"Walk me through your emergency fund process."</strong></td>
+                    <td>$5K-$10K emergency reserve accessible within 24 hours</td>
+                    <td>No emergency fund or administrator must approve all repairs &gt;$100</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section breakable-section">
+            <h3>D. SEVERE UNDERFUNDING IMPACT ASSESSMENT</h3>
+            
+            <div class="alert alert-red no-break">
+                <strong>Critical Assessment:</strong> "With only $800/month, how do you ensure resident safety and comfort?"
+            </div>
+            
+            <table class="breakable-table">
+                <thead>
+                <tr>
+                    <th>Essential System</th>
+                    <th>Minimum Annual Cost (43-bed)</th>
+                    <th>With $800/month Budget</th>
+                    <th>Investigation Focus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>HVAC Maintenance</strong></td>
+                    <td>$8,000-$12,000</td>
+                    <td class="red-text"><strong>IMPOSSIBLE</strong></td>
+                    <td>"When was HVAC last serviced? Any temperature complaints?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Plumbing Repairs</strong></td>
+                    <td>$3,000-$6,000</td>
+                    <td class="red-text"><strong>SEVERELY LIMITED</strong></td>
+                    <td>"Any ongoing plumbing issues? Water pressure problems?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Electrical Safety</strong></td>
+                    <td>$2,000-$4,000</td>
+                    <td class="red-text"><strong>INADEQUATE</strong></td>
+                    <td>"When were electrical systems last inspected?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Generator/Emergency Systems</strong></td>
+                    <td>$2,000-$3,000</td>
+                    <td class="red-text"><strong>LIKELY DEFERRED</strong></td>
+                    <td>"Generator testing current? Emergency lighting functional?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Building Maintenance</strong></td>
+                    <td>$5,000-$10,000</td>
+                    <td class="red-text"><strong>IMPOSSIBLE</strong></td>
+                    <td>"Any leaks, structural issues, safety hazards?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Equipment Repairs</strong></td>
+                    <td>$8,000-$15,000</td>
+                    <td class="red-text"><strong>CRITICAL SHORTAGE</strong></td>
+                    <td>"Any broken equipment affecting resident care?"</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>E. RESOURCE STARVATION INDICATORS</h3>
+            
+            <div class="alert alert-red">
+                <strong>Question:</strong> "What maintenance have you had to skip or postpone due to budget?"
+            </div>
+            
+            <h4>Document All Examples:</h4>
+            <ul>
+                <li><span class="checkbox"></span> Safety-related repairs postponed</li>
+                <li><span class="checkbox"></span> Comfort systems (heat/AC) inadequately maintained</li>
+                <li><span class="checkbox"></span> Equipment breakdowns lasting >72 hours</li>
+                <li><span class="checkbox"></span> "Band-aid" fixes instead of proper repairs</li>
+                <li><span class="checkbox"></span> Resident care impacted by facility conditions</li>
+            </ul>
+            
+            <div class="alert alert-red">
+                <strong>Follow-up:</strong> "How does the administrator respond when you request additional funds for these issues?"
+            </div>
+            
+            <h4>Red Flag Responses:</h4>
+            <ul>
+                <li><span class="icon icon-red-flag">🚨</span> "We make do with what we have"</li>
+                <li><span class="icon icon-red-flag">🚨</span> "Residents don't complain much"</li>
+                <li><span class="icon icon-red-flag">🚨</span> "Corporate/owner says budget is final"</li>
+                <li><span class="icon icon-red-flag">🚨</span> "I'm told to be creative with solutions"</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Housekeeping Department -->
+    <div id="housekeeping" class="page-break dept-housekeeping">
+        <h1><span class="icon icon-info">🧹</span>II. Housekeeping Department (Consolidated Role)</h1>
+        
+        <div class="assessment-section">
+            <h3>A. 43-Bed Housekeeping Staffing Reality</h3>
+            
+            <table>
+                <tr>
+                    <th>Assessment Area</th>
+                    <th>43-Bed Standard</th>
+                    <th>Red Flag Threshold</th>
+                    <th>Interview Focus</th>
+                </tr>
+                <tr>
+                    <td><strong>Daily Staffing</strong></td>
+                    <td>2-3 housekeeping staff per shift</td>
+                    <td>&lt;1.5 FTE total housekeeping</td>
+                    <td>"How many housekeeping staff do you have, and how do you cover when someone's sick?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Supply Budget</strong></td>
+                    <td>$15K-$25K annually (~$350-$580 per bed)</td>
+                    <td><strong>INVESTIGATE: Compare to $800/month maintenance</strong></td>
+                    <td>"What's your housekeeping supply budget? How does it compare to maintenance?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Equipment Condition</strong></td>
+                    <td>2-3 vacuum cleaners, 1 floor scrubber, basic carpet cleaner</td>
+                    <td>Essential equipment frequently broken <strong>due to maintenance budget</strong></td>
+                    <td>"Any housekeeping equipment broken that you can't afford to fix?"</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Cross-Department Budget Impact</h3>
+            
+            <div class="alert alert-red">
+                <strong>Critical Question:</strong> "With maintenance only getting $800/month, how does that affect your housekeeping equipment and facility cleanliness?"
+            </div>
+            
+            <h4>Document Specific Impacts:</h4>
+            <ul>
+                <li><span class="checkbox"></span> Vacuum cleaners not repaired due to maintenance budget</li>
+                <li><span class="checkbox"></span> Floor cleaning equipment breaking down</li>
+                <li><span class="checkbox"></span> HVAC issues affecting indoor air quality</li>
+                <li><span class="checkbox"></span> Plumbing problems impacting cleaning efficiency</li>
+                <li><span class="checkbox"></span> Hot water issues for cleaning</li>
+                <li><span class="checkbox"></span> Electrical outlets not working for equipment</li>
+            </ul>
+            
+            <h4>Red Flag Scenarios:</h4>
+            <ul>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>Equipment repairs "not affordable" under either budget</strong></li>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>Housekeeping staff using personal equipment</strong></li>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>Basic cleaning not possible due to equipment failures</strong></li>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>"We make do with what works"</strong></li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Infection Control Integration (Critical for Small Facilities)</h3>
+            
+            <table>
+                <tr>
+                    <th>Focus Area</th>
+                    <th>43-Bed Expectation</th>
+                    <th>Red Flag Indicators</th>
+                    <th>Verification Method</th>
+                </tr>
+                <tr>
+                    <td><strong>Chemical Management</strong></td>
+                    <td>Proper dilution ratios, secure storage, MSDS available</td>
+                    <td>Running out of disinfectant, improper storage, staff unfamiliar with chemicals</td>
+                    <td>Check chemical storage, test dilution knowledge</td>
+                </tr>
+                <tr>
+                    <td><strong>COVID/Infectious Disease Response</strong></td>
+                    <td>Written protocols, isolation room procedures</td>
+                    <td>No written plan, "we figure it out as we go"</td>
+                    <td>Request infectious disease cleaning protocols</td>
+                </tr>
+                <tr>
+                    <td><strong>Staff Training</strong></td>
+                    <td>Annual infection control training, proper PPE use</td>
+                    <td>Staff unfamiliar with proper cleaning for infectious diseases</td>
+                    <td>Interview housekeeping staff separately</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Laundry Department -->
+    <div id="laundry" class="page-break dept-laundry">
+        <h1><span class="icon icon-info">👕</span>III. Laundry Department (43-Bed Operations)</h1>
+        
+        <div class="assessment-section">
+            <h3>A. Small Facility Laundry Assessment</h3>
+            
+            <div class="alert alert-info">
+                <strong>Key Question:</strong> "With 43 beds, what's your typical daily laundry volume and how do you manage the workload?"
+            </div>
+            
+            <h4>43-Bed Standards:</h4>
+            <ul>
+                <li>Daily volume: 250-350 lbs of laundry</li>
+                <li>Turnaround time: 24-48 hours maximum</li>
+                <li>Inventory: 4-6 sets of linens per bed (172-258 total sets)</li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Resource Adequacy for Small Operations</h3>
+            
+            <table>
+                <tr>
+                    <th>Assessment</th>
+                    <th>43-Bed Appropriate</th>
+                    <th>Red Flag Triggers</th>
+                    <th>Follow-up Questions</th>
+                </tr>
+                <tr>
+                    <td><strong>Linen Inventory</strong></td>
+                    <td>4-6 sets per bed, regular replacement schedule</td>
+                    <td>&lt;3 sets per bed, linens with holes/stains</td>
+                    <td>"How often do you replace worn linens? Show me your newest and oldest sets."</td>
+                </tr>
+                <tr>
+                    <td><strong>Equipment Capacity</strong></td>
+                    <td>Washer/dryer sized for daily volume, backup plan</td>
+                    <td>Frequent breakdowns, no backup for equipment failure</td>
+                    <td>"What happens when the washer breaks? How long before it's fixed?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Staffing Coverage</strong></td>
+                    <td>1-2 FTE laundry staff, cross-training available</td>
+                    <td>One person handles all laundry with no backup</td>
+                    <td>"Who covers laundry when you're handling maintenance issues?"</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Quality Control (Critical Questions)</h3>
+            
+            <div class="alert alert-info">
+                <strong>Question:</strong> "Since you oversee multiple departments, how do you ensure laundry quality doesn't suffer when you're focused elsewhere?"
+            </div>
+            
+            <h4>Red Flag Responses:</h4>
+            <ul>
+                <li><span class="icon icon-red-flag">🚨</span> "I don't really check laundry quality"</li>
+                <li><span class="icon icon-red-flag">🚨</span> "Staff figure it out themselves"</li>
+                <li><span class="icon icon-red-flag">🚨</span> "Quality isn't really my responsibility"</li>
+            </ul>
+            
+            <div class="alert alert-info">
+                <strong>Question:</strong> "Walk me through your linen inspection process."
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Expected Response</th>
+                    <th>Red Flag Response</th>
+                    <th>Assessment</th>
+                </tr>
+                <tr>
+                    <td>Regular quality checks, damaged item removal, replacement procedures</td>
+                    <td>No quality control process, damaged linens in circulation</td>
+                    <td><span class="checkbox"></span> Quality Control Process Verified</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Safety & Emergency Preparedness -->
+    <div id="safety" class="page-break dept-safety">
+        <h1><span class="icon icon-warning">🛡️</span>IV. Safety & Emergency Preparedness (Consolidated Assessment)</h1>
+        
+        <div class="assessment-section">
+            <h3>A. 43-Bed Safety Program Realities</h3>
+            
+            <div class="alert alert-info">
+                <strong>Critical Question:</strong> "As the safety director for a 43-bed facility, what are your top 3 safety priorities?"
+            </div>
+            
+            <h4>Expected Priorities:</h4>
+            <ol>
+                <li>Fall prevention systems</li>
+                <li>Fire safety and evacuation procedures</li>
+                <li>Emergency power and communication systems</li>
+            </ol>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Emergency Preparedness Assessment</h3>
+            
+            <table>
+                <tr>
+                    <th>Emergency Type</th>
+                    <th>43-Bed Requirements</th>
+                    <th>Assessment Questions</th>
+                    <th>Red Flags</th>
+                </tr>
+                <tr>
+                    <td><strong>Power Outage</strong></td>
+                    <td>Generator testing monthly, 72-hour fuel capacity</td>
+                    <td>"When was the generator last tested? Show me the logs."</td>
+                    <td>No recent testing, generator doesn't start, no fuel monitoring</td>
+                </tr>
+                <tr>
+                    <td><strong>Fire Emergency</strong></td>
+                    <td>Evacuation plan &lt;10 minutes, staff training quarterly</td>
+                    <td>"How long would it take to evacuate all residents? Who's responsible for which areas?"</td>
+                    <td>No clear evacuation plan, staff unfamiliar with procedures</td>
+                </tr>
+                <tr>
+                    <td><strong>Medical Emergency</strong></td>
+                    <td>Emergency supplies accessible, communication systems tested</td>
+                    <td>"Where are emergency supplies? How do you communicate with EMS?"</td>
+                    <td>Supplies locked away, communication systems unreliable</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="critical-finding">
+            <strong>LIFE SAFETY VIOLATIONS - CRIMINAL ENDANGERMENT:</strong>
+            <ul>
+                <li><span class="checkbox"></span> <strong>NO EVACUATION MAPS POSTED</strong> (fire code violation throughout building)</li>
+                <li><span class="checkbox"></span> <strong>FAKE FIRE DRILLS</strong> (system tests only, no resident evacuation)</li>
+                <li><span class="checkbox"></span> <strong>UNSAFE EVACUATION AREA</strong> (locked chainlink fence 20 feet from building)</li>
+                <li><span class="checkbox"></span> <strong>BLOCKED SAFETY IMPROVEMENTS</strong> (prevented maglock installation for emergency access)</li>
+                <li><span class="checkbox"></span> <strong>ADMINISTRATIVE HOSTILITY TO SAFETY</strong> (mocked professional engineer's safety efforts)</li>
+                <li><span class="checkbox"></span> <strong>FIRE MARSHAL COMPLAINT FILED</strong> (official report of life-threatening violations)</li>
+                <li><span class="checkbox"></span> <strong>MULTIPLE NFPA 101 VIOLATIONS</strong> (Life Safety Code systematic failures)</li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Cross-Department Safety Integration</h3>
+            
+            <div class="alert alert-info">
+                <strong>Question:</strong> "How do you ensure safety standards are maintained across maintenance, housekeeping, and laundry when you're managing all three?"
+            </div>
+            
+            <h4>Assessment Focus:</h4>
+            <ul>
+                <li><span class="checkbox"></span> Daily safety rounds or checklist</li>
+                <li><span class="checkbox"></span> Integration of safety into all department procedures</li>
+                <li><span class="checkbox"></span> Clear escalation process for safety concerns</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Consolidated Role Management Assessment -->
+    <div id="consolidated-role" class="page-break">
+        <h1><span class="icon icon-info">👥</span>V. Consolidated Role Management Assessment</h1>
+        
+        <div class="assessment-section">
+            <h3>A. Time Management & Priorities</h3>
+            
+            <div class="alert alert-info">
+                <strong>Question:</strong> "Yesterday was a typical day. Walk me through how you spent your time across all your responsibilities."
+            </div>
+            
+            <h4>Red Flag Time Distribution:</h4>
+            <ul>
+                <li><span class="icon icon-red-flag">🚨</span> >60% time on administrative tasks, <40% on operational oversight</li>
+                <li><span class="icon icon-red-flag">🚨</span> No scheduled time for each department</li>
+                <li><span class="icon icon-red-flag">🚨</span> "I just handle whatever's loudest"</li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Documentation & Communication</h3>
+            
+            <table>
+                <tr>
+                    <th>Area</th>
+                    <th>43-Bed Expectation</th>
+                    <th>Red Flag Indicators</th>
+                    <th>Verification</th>
+                </tr>
+                <tr>
+                    <td><strong>Work Order System</strong></td>
+                    <td>Simple but consistent tracking, priority coding</td>
+                    <td>No work order system, everything verbal</td>
+                    <td>Request to see work order logs</td>
+                </tr>
+                <tr>
+                    <td><strong>Staff Communication</strong></td>
+                    <td>Regular check-ins with department staff, clear instructions</td>
+                    <td>Staff never know priorities, conflicting directions</td>
+                    <td>Interview department staff</td>
+                </tr>
+                <tr>
+                    <td><strong>Administrator Reporting</strong></td>
+                    <td>Weekly summary reports, immediate safety issue alerts</td>
+                    <td>No regular reporting, administrator unaware of issues</td>
+                    <td>Check reporting documentation</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Backup and Coverage Systems</h3>
+            
+            <div class="alert alert-red">
+                <strong>Critical Assessment:</strong> "You wear a lot of hats. What happens when you're sick or on vacation?"
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Expected Response</th>
+                    <th>Red Flag Response</th>
+                    <th>Assessment</th>
+                </tr>
+                <tr>
+                    <td>Cross-trained staff can handle basic functions</td>
+                    <td rowspan="3">"Nothing gets done when I'm gone"<br>"I never take time off"<br>"Staff just wait until I get back"</td>
+                    <td><span class="checkbox"></span> Adequate backup systems</td>
+                </tr>
+                <tr>
+                    <td>Clear emergency contact procedures</td>
+                    <td><span class="checkbox"></span> Emergency protocols in place</td>
+                </tr>
+                <tr>
+                    <td>Written procedures for essential functions</td>
+                    <td><span class="checkbox"></span> Documentation available</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Resident Care Impact Assessment -->
+    <div id="resident-impact" class="page-break">
+        <h1><span class="icon icon-red-flag">🏥</span>Resident Care Impact Assessment</h1>
+        
+        <div class="critical-finding">
+            <strong>OPERATIONAL DEFICIENCIES AND THEIR EFFECTS ON RESIDENT SAFETY AND COMFORT</strong>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>A. Direct Care Impact Documentation</h3>
+            
+            <div class="alert alert-red">
+                <strong>Question:</strong> "Has the $800/month maintenance budget ever resulted in conditions that affected resident care, safety, or comfort?"
+            </div>
+            
+            <h4>Document ALL Examples:</h4>
+            <ul>
+                <li><span class="checkbox"></span> <strong>Temperature Issues:</strong> Rooms too hot/cold due to HVAC problems</li>
+                <li><span class="checkbox"></span> <strong>Safety Hazards:</strong> Broken handrails, loose flooring, non-functional call lights</li>
+                <li><span class="checkbox"></span> <strong>Hygiene Problems:</strong> Plumbing issues affecting bathing, laundry problems</li>
+                <li><span class="checkbox"></span> <strong>Equipment Failures:</strong> Lifts, beds, wheelchairs not repaired</li>
+                <li><span class="checkbox"></span> <strong>Infection Control:</strong> Facility conditions contributing to illness risk</li>
+            </ul>
+            
+            <h4>For Each Issue, Document:</h4>
+            <table>
+                <tr>
+                    <th>Issue Details</th>
+                    <th>Information Required</th>
+                    <th>Response</th>
+                </tr>
+                <tr>
+                    <td>How long has problem existed?</td>
+                    <td>Timeline and duration</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>How many residents affected?</td>
+                    <td>Number and specific impact</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Any resident complaints or family concerns?</td>
+                    <td>Documentation of complaints</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>What "temporary fixes" have been attempted?</td>
+                    <td>Workaround solutions</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>What would proper repair cost vs. available budget?</td>
+                    <td>Cost analysis</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Staff Workaround Assessment</h3>
+            
+            <div class="alert alert-red">
+                <strong>Question:</strong> "What creative solutions have you had to use because you can't afford proper repairs?"
+            </div>
+            
+            <h4>Red Flag "Solutions":</h4>
+            <ul>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>Duct tape, zip ties, or temporary fixes on safety equipment</strong></li>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>Staff bringing personal tools/supplies from home</strong></li>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>Moving residents to avoid problem areas</strong></li>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>"Making do" with broken equipment</strong></li>
+                <li><span class="icon icon-red-flag">🚨</span> <strong>Ignoring non-critical repairs that could become safety issues</strong></li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Decision-Making Authority Investigation</h3>
+            
+            <div class="alert alert-red">
+                <strong>Question:</strong> "Who decided that $800/month was adequate for maintenance in a 43-bed facility?"
+            </div>
+            
+            <h4>Follow-up Questions:</h4>
+            <table>
+                <tr>
+                    <th>Question</th>
+                    <th>Response</th>
+                    <th>Follow-up Required</th>
+                </tr>
+                <tr>
+                    <td>"Were you consulted about this budget amount?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> If no, why not?</td>
+                </tr>
+                <tr>
+                    <td>"Did you provide any assessment of actual maintenance needs?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> Request documentation</td>
+                </tr>
+                <tr>
+                    <td>"How was the $800 figure determined?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> Investigate rationale</td>
+                </tr>
+                <tr>
+                    <td>"Have you ever requested budget increases? What was the response?"</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><span class="checkbox"></span> Document rejections</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Financial Red Flags -->
+    <div id="financial-red-flags" class="page-break">
+        <h1><span class="icon icon-red-flag">💰</span>VI. Financial Red Flags (43-Bed Specific)</h1>
+        
+        <div class="assessment-section">
+            <h3>A. Budget Authority Assessment</h3>
+            
+            <div class="alert alert-info">
+                <strong>Question:</strong> "What's your spending authority for each of your departments without administrator approval?"
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Department</th>
+                    <th>43-Bed Appropriate Authority</th>
+                    <th>With $800/month Total</th>
+                    <th>Actual Authority</th>
+                </tr>
+                <tr>
+                    <td>Maintenance</td>
+                    <td>$500-$2,000 emergency authority</td>
+                    <td class="red-text">Likely <strong>NO meaningful authority</strong></td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Housekeeping</td>
+                    <td>$200-$500 routine purchases</td>
+                    <td class="red-text">Very limited</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Laundry</td>
+                    <td>$200-$500 routine purchases</td>
+                    <td class="red-text">Very limited</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Safety/Emergency</td>
+                    <td>$1,000+ emergency authority</td>
+                    <td class="red-text">Questionable</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+            </table>
+            
+            <div class="alert alert-red">
+                <strong>Critical Follow-up:</strong> "Can you spend your full $800/month budget, or do individual purchases need approval?"
+            </div>
+            
+            <h4>Red Flags:</h4>
+            <ul>
+                <li><span class="checkbox"></span> Must get approval for purchases >$50-$100</li>
+                <li><span class="checkbox"></span> Administrator must approve all "non-emergency" spending</li>
+                <li><span class="checkbox"></span> End of month budget often "frozen" or "unavailable"</li>
+                <li><span class="checkbox"></span> Emergency repairs require lengthy approval process</li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Resource Diversion Investigation</h3>
+            
+            <div class="critical-finding">
+                <strong>CRITICAL QUESTION:</strong> "Do you know what other major expenses the facility has? Where does the money go that should be available for maintenance?"
+            </div>
+            
+            <h4>Investigate These Areas:</h4>
+            <table>
+                <tr>
+                    <th>Expense Category</th>
+                    <th>Investigation Focus</th>
+                    <th>Findings</th>
+                </tr>
+                <tr>
+                    <td><strong>Administrative/Management Fees</strong></td>
+                    <td>Are there high management or consulting fees?</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Corporate Overhead</strong></td>
+                    <td>What percentage goes to corporate/ownership?</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Rent/Property Costs</strong></td>
+                    <td>Is facility paying excessive rent to related entity?</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Marketing/Non-Essential Expenses</strong></td>
+                    <td>Money spent on non-resident care items?</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Related-Party Transaction Red Flags</h3>
+            
+            <table>
+                <tr>
+                    <th>Red Flag Type</th>
+                    <th>43-Bed Specific Indicators</th>
+                    <th>Investigation Questions</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td><strong>Administrative Fee Extraction</strong></td>
+                    <td>High management fees while maintenance underfunded</td>
+                    <td>"Do you know what the facility pays for management services?"</td>
+                    <td><span class="checkbox"></span> Investigated</td>
+                </tr>
+                <tr>
+                    <td><strong>Property/Rent Inflation</strong></td>
+                    <td>Excessive rent payments reducing operational funds</td>
+                    <td>"Who owns the building? Do you know what rent/mortgage costs?"</td>
+                    <td><span class="checkbox"></span> Investigated</td>
+                </tr>
+                <tr>
+                    <td><strong>Selective Budget Cuts</strong></td>
+                    <td>Only maintenance cut while other expenses maintained</td>
+                    <td>"Have other departments had budget cuts, or just maintenance?"</td>
+                    <td><span class="checkbox"></span> Investigated</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Documentation Review -->
+    <div id="documentation" class="page-break">
+        <h1><span class="icon icon-info">📋</span>VII. Documentation Review (Rapid Assessment)</h1>
+        
+        <div class="assessment-section">
+            <h3>A. Essential Documentation Check</h3>
+            
+            <h4>Quick Review Items:</h4>
+            <table>
+                <tr>
+                    <th>Document Type</th>
+                    <th>Time Period</th>
+                    <th>Status</th>
+                    <th>Quality Assessment</th>
+                </tr>
+                <tr>
+                    <td>Work order system</td>
+                    <td>Last 30 days</td>
+                    <td><span class="checkbox"></span> Reviewed</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Emergency generator testing logs</td>
+                    <td>Last 6 months</td>
+                    <td><span class="checkbox"></span> Reviewed</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Safety meeting minutes</td>
+                    <td>Last 3 months</td>
+                    <td><span class="checkbox"></span> Reviewed</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Vendor contact list and recent invoices</td>
+                    <td>Current</td>
+                    <td><span class="checkbox"></span> Reviewed</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Staff training records for safety procedures</td>
+                    <td>Last 12 months</td>
+                    <td><span class="checkbox"></span> Reviewed</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td>Infection control cleaning protocols</td>
+                    <td>Current</td>
+                    <td><span class="checkbox"></span> Reviewed</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Pattern Recognition</h3>
+            
+            <h4>Look For:</h4>
+            <ul>
+                <li><span class="checkbox"></span> Consistent documentation vs. gaps during specific periods</li>
+                <li><span class="checkbox"></span> Correlation between staffing changes and documentation quality</li>
+                <li><span class="checkbox"></span> Evidence of deferred maintenance during budget pressures</li>
+            </ul>
+            
+            <div class="alert alert-info">
+                <strong>Pattern Analysis:</strong>
+                <textarea rows="4" style="width: 100%; margin-top: 10px;" placeholder="Document any patterns identified in documentation quality, timing, or completeness..."></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Interview Wrap-up Assessment -->
+    <div id="wrap-up" class="page-break">
+        <h1><span class="icon icon-success">✅</span>VIII. Interview Wrap-up Assessment</h1>
+        
+        <div class="assessment-section">
+            <h3>A. Overall Competency Evaluation</h3>
+            
+            <div class="alert alert-info">
+                <strong>Final Question:</strong> "If I asked the nursing director about facilities operations, what would they tell me about working with you?"
+            </div>
+            
+            <h4>Assessment Criteria:</h4>
+            <table>
+                <tr>
+                    <th>Competency Area</th>
+                    <th>Positive Indicators</th>
+                    <th>Assessment</th>
+                </tr>
+                <tr>
+                    <td>Understanding of care impact</td>
+                    <td>Demonstrates awareness of how operations affect resident care</td>
+                    <td><span class="checkbox"></span> Satisfactory</td>
+                </tr>
+                <tr>
+                    <td>Collaborative approach with clinical staff</td>
+                    <td>Shows good working relationships with nursing</td>
+                    <td><span class="checkbox"></span> Satisfactory</td>
+                </tr>
+                <tr>
+                    <td>Professional limitations awareness</td>
+                    <td>Acknowledges limitations and asks for help when needed</td>
+                    <td><span class="checkbox"></span> Satisfactory</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Red Flag Summary Checklist</h3>
+            
+            <h4>Critical Red Flags Requiring Immediate Follow-up:</h4>
+            <ul>
+                <li><span class="checkbox"></span> No independent decision-making authority for safety issues</li>
+                <li><span class="checkbox"></span> Lack of backup coverage for essential functions</li>
+                <li><span class="checkbox"></span> Poor communication with nursing staff about operational impacts</li>
+                <li><span class="checkbox"></span> Deferred maintenance affecting resident care</li>
+                <li><span class="checkbox"></span> No emergency preparedness planning or testing</li>
+                <li><span class="checkbox"></span> Evidence of administrator micromanagement of operational decisions</li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Strengths Identification</h3>
+            
+            <h4>Positive Indicators:</h4>
+            <ul>
+                <li><span class="checkbox"></span> Clear prioritization system favoring resident safety</li>
+                <li><span class="checkbox"></span> Effective cross-training and backup systems</li>
+                <li><span class="checkbox"></span> Good relationships with nursing and clinical staff</li>
+                <li><span class="checkbox"></span> Proactive maintenance planning</li>
+                <li><span class="checkbox"></span> Efficient resource utilization</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Immediate Actions Required -->
+    <div id="immediate-actions" class="page-break">
+        <h1><span class="icon icon-red-flag">⚡</span>Immediate Actions Required for Compliance Deficiencies</h1>
+        
+        <div class="critical-finding">
+            <strong>MULTIPLE DEFICIENCIES IDENTIFIED ACROSS REGULATORY COMPLIANCE AREAS</strong>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>A. Regulatory Compliance Assessment</h3>
+            
+            <table class="breakable-table">
+                <thead>
+                <tr>
+                    <th>Regulatory Citation</th>
+                    <th>Violation Description</th>
+                    <th>Severity</th>
+                    <th>Verified</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>42 CFR § 483.90(a)</strong></td>
+                    <td>Failure to maintain safe, functional environment</td>
+                    <td class="red-text">CRITICAL</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>42 CFR § 483.90(c)</strong></td>
+                    <td>Equipment not maintained in safe operating condition</td>
+                    <td class="red-text">CRITICAL</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>42 CFR § 483.12</strong></td>
+                    <td>Freedom from abuse/neglect (resource starvation)</td>
+                    <td class="red-text">CRITICAL</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>42 CFR § 483.75(f)</strong></td>
+                    <td>Effective oversight of financial operations</td>
+                    <td class="red-text">HIGH</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>42 CFR § 483.80(a)</strong></td>
+                    <td>Infection prevention and control program violations</td>
+                    <td class="red-text">HIGH</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>42 CFR § 483.73</strong></td>
+                    <td>Emergency preparedness requirements</td>
+                    <td class="red-text">HIGH</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Utah R432-150-31</strong></td>
+                    <td>Physical environment standards</td>
+                    <td class="red-text">HIGH</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Utah R432-150-18</strong></td>
+                    <td>Employee health and screening requirements</td>
+                    <td class="red-text">HIGH</td>
+                    <td><span class="checkbox"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>B. Expert Assessment Credibility</h3>
+            
+            <div class="alert alert-info">
+                <strong>Inspector Professional Background:</strong>
+                <ul>
+                    <li><strong>Mechanical Engineer</strong> with federal aerospace procurement experience</li>
+                    <li><strong>Facilities Engineer</strong> in pharmaceutical industry with CapEx processes</li>
+                    <li><strong>Professional Knowledge</strong> of industry-standard financial controls</li>
+                    <li><strong>Expert Opinion</strong> that current facility lacks basic professional standards</li>
+                </ul>
+            </div>
+            
+            <h4>This professional assessment provides:</h4>
+            <ul>
+                <li>Expert witness credibility for regulatory proceedings</li>
+                <li>Industry standard comparisons for enforcement actions</li>
+                <li>Professional opinion on fraud risk and financial mismanagement</li>
+                <li>Credible assessment of what constitutes adequate facility management</li>
+            </ul>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>C. Immediate Investigation Priorities</h3>
+            
+            <div class="alert alert-red">
+                <strong>URGENT FOLLOW-UP REQUIRED:</strong>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Priority</th>
+                    <th>Investigation Area</th>
+                    <th>Timeline</th>
+                    <th>Assigned To</th>
+                </tr>
+                <tr>
+                    <td class="red-text">1. IMMEDIATE</td>
+                    <td>Physical Facility Inspection: Document all deferred maintenance and safety hazards</td>
+                    <td>Within 24 hours</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td class="red-text">2. URGENT</td>
+                    <td>Resident Impact Assessment: Interview residents/families about facility conditions</td>
+                    <td>Within 48 hours</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td class="red-text">3. HIGH</td>
+                    <td>Financial Investigation: Trace where money goes that should fund maintenance</td>
+                    <td>Within 72 hours</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td class="red-text">4. HIGH</td>
+                    <td>Administrative Interview: Question administrator about budget adequacy</td>
+                    <td>Within 1 week</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td class="red-text">5. MEDIUM</td>
+                    <td>Regulatory Reporting: Consider immediate notification to state agencies</td>
+                    <td>Within 1 week</td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="assessment-section">
+            <h3>D. Resident Safety Immediate Assessment</h3>
+            
+            <div class="alert alert-red">
+                <strong>EMERGENCY QUESTIONS:</strong>
+            </div>
+            
+            <ul>
+                <li>"Are there any current safety hazards that haven't been fixed due to budget?"</li>
+                <li>"Any equipment critical to resident care that's not working properly?"</li>
+                <li>"Any environmental conditions that could harm residents?"</li>
+            </ul>
+            
+            <div class="critical-finding">
+                <strong>If YES to any: IMMEDIATE INTERVENTION REQUIRED</strong>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Conclusion -->
+    <div class="assessment-section page-break">
+        <h2><span class="icon icon-info">📊</span>Conclusion</h2>
+        
+        <div class="alert alert-info">
+            <strong>For 43-bed facilities, success in consolidated operations roles depends on:</strong>
+            <ol>
+                <li><strong>Adequate Resource Allocation:</strong> $800/month is severely inadequate and constitutes potential neglect</li>
+                <li><strong>Clear Prioritization:</strong> Safety and care impact drive decisions (impossible with this budget)</li>
+                <li><strong>Effective Communication:</strong> Must escalate budget inadequacy to prevent resident harm</li>
+                <li><strong>Administrative Support:</strong> Leadership must provide adequate resources or face regulatory action</li>
+                <li><strong>Regulatory Compliance:</strong> Current budget level appears to violate multiple federal and state requirements</li>
+            </ol>
+        </div>
+        
+        <div class="critical-finding">
+            <strong>CRITICAL FINDINGS - SYSTEMATIC COMPLIANCE DEFICIENCIES:</strong>
+            <ol>
+                <li>$800/month maintenance budget (below industry standard of $2,500-$4,500 for 43-bed facility)</li>
+                <li>Absence of capital expenditure processes and procurement controls</li>
+                <li>Pre-employment screening deficiencies (no drug testing, TB testing delayed 5 months)</li>
+                <li>Inadequate employee orientation process contributing to staff turnover</li>
+                <li>Emergency preparedness plan inadequacies (downloaded template, not facility-specific)</li>
+                <li>Fire safety compliance deficiencies (no posted evacuation maps throughout building)</li>
+                <li>Fire drill procedures inadequate (system testing only, no resident evacuation practiced)</li>
+                <li>Evacuation area concerns (chainlink fenced area with locked gates, insufficient distance from building)</li>
+                <li>Safety improvement recommendations declined (evacuation maps, emergency gate access systems)</li>
+                <li>Professional safety recommendations not implemented despite engineer's expertise</li>
+            </ol>
+        </div>
+        
+        <div class="alert alert-warning">
+            <strong>REGULATORY REFERRAL RECOMMENDED:</strong>
+            <ul>
+                <li><strong>State Licensing Authority:</strong> Review of multiple compliance deficiencies</li>
+                <li><strong>Fire Marshal:</strong> Assessment of fire safety infrastructure and procedures</li>
+                <li><strong>CMS Regional Office:</strong> Evaluation of emergency preparedness compliance</li>
+                <li><strong>Professional Standards Review:</strong> Assessment of facility management practices</li>
+            </ul>
+        </div>
+        
+        <div class="alert alert-info">
+            <strong>Professional Assessment:</strong> Inspector's engineering background in federal aerospace and pharmaceutical facilities provides qualified perspective that facility operations fall below standard industry practices for safety management, financial controls, and regulatory compliance.
+        </div>
+    </div>
+    
+    <!-- Signatures Section -->
+    <div id="signatures" class="signature-section page-break">
+        <h2><span class="icon icon-success">✍️</span>Inspector Signatures & Approvals</h2>
+        
+        <table>
+            <tr>
+                <th style="width: 30%;">Role</th>
+                <th style="width: 40%;">Signature</th>
+                <th style="width: 30%;">Date</th>
+            </tr>
+            <tr>
+                <td><strong>Primary Inspector:</strong></td>
+                <td><div class="signature-line"></div></td>
+                <td><input type="text" placeholder="MM/DD/YYYY"></td>
+            </tr>
+            <tr>
+                <td><strong>Legal Reviewer:</strong></td>
+                <td><div class="signature-line"></div></td>
+                <td><input type="text" placeholder="MM/DD/YYYY"></td>
+            </tr>
+            <tr>
+                <td><strong>CMS Regional Approval:</strong></td>
+                <td><div class="signature-line"></div></td>
+                <td><input type="text" placeholder="MM/DD/YYYY"></td>
+            </tr>
+            <tr>
+                <td><strong>State Licensing Coordinator:</strong></td>
+                <td><div class="signature-line"></div></td>
+                <td><input type="text" placeholder="MM/DD/YYYY"></td>
+            </tr>
+        </table>
+        
+        <div class="alert alert-red" style="margin-top: 30px;">
+            <div class="form-field">
+                <input type="checkbox" id="follow-up">
+                <label for="follow-up"><strong>FOLLOW-UP ACTIONS RECOMMENDED: REGULATORY REVIEW WARRANTED</strong></label>
+            </div>
+        </div>
+        
+        <div class="alert alert-info" style="margin-top: 20px;">
+            <strong>Summary of Compliance Deficiencies:</strong>
+            <ul>
+                <li>Multiple gaps in financial management controls and maintenance budgeting</li>
+                <li>Employee screening and orientation process deficiencies</li>
+                <li>Emergency preparedness and fire safety infrastructure concerns</li>
+                <li>Gap between documented procedures and actual implementation</li>
+                <li>Administrative resistance to professional safety improvement recommendations</li>
+            </ul>
+        </div>
+        
+        <div class="alert alert-warning" style="margin-top: 20px;">
+            <strong>RECOMMENDED FOLLOW-UP ACTIONS:</strong>
+            <ol>
+                <li><strong>Fire Safety Assessment:</strong> Fire marshal review of evacuation procedures and infrastructure</li>
+                <li><strong>Regulatory Review:</strong> State licensing authority assessment of compliance deficiencies</li>
+                <li><strong>Emergency Preparedness Evaluation:</strong> Review of facility-specific planning and procedures</li>
+                <li><strong>Administrative Interview:</strong> Discussion of facility management practices and resource allocation</li>
+                <li><strong>Documentation Review:</strong> Assessment of actual procedures versus documented policies</li>
+            </ol>
+        </div>
+    </div>
+    
+    </div> <!-- End main-content container -->
+    
+    <!-- Screen-only Footer -->
+    <div class="footer no-print">
+        <div>Enhanced CMS Long-Term Care Facility Inspection Checklist v2.1 | Utah Department of Health & Human Services</div>
+        <div>
+            <strong>CONFIDENTIAL DOCUMENT</strong> - For Official Use Only | Page <span id="footer-page">1</span> of 28
+        </div>
+    </div>
+    
+    <script>
+        // Set current date
+        const currentDate = new Date().toLocaleDateString();
+        document.getElementById('current-date').textContent = currentDate;
+        document.getElementById('current-date-print').textContent = currentDate;
+        
+        // Initialize form with today's date
+        document.getElementById('inspectionDate').value = new Date().toISOString().split('T')[0];
+        
+        // Form data management
+        let formData = {};
+        let autoSaveInterval;
+        
+        // Initialize form functionality
+        function initializeForm() {
+            // Auto-save every 30 seconds
+            autoSaveInterval = setInterval(autoSaveFormData, 30000);
+            
+            // Add event listeners for form changes
+            const inputs = document.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('change', updateProgress);
+                input.addEventListener('input', function() {
+                    validateField(this);
+                    debounceAutoSave();
+                });
+            });
+            
+            // Load any existing data
+            loadFormData();
+            updateProgress();
+        }
+        
+        // Debounced auto-save for real-time changes
+        let autoSaveTimeout;
+        function debounceAutoSave() {
+            clearTimeout(autoSaveTimeout);
+            autoSaveTimeout = setTimeout(autoSaveFormData, 2000);
+        }
+        
+        // Validate individual fields
+        function validateField(field) {
+            if (field.required) {
+                if (field.value.trim() === '') {
+                    field.classList.add('invalid');
+                    field.classList.remove('valid');
+                } else {
+                    field.classList.add('valid');
+                    field.classList.remove('invalid');
+                }
+            }
+            
+            // Specific validations
+            if (field.type === 'date' && field.value) {
+                const inputDate = new Date(field.value);
+                const today = new Date();
+                if (inputDate > today) {
+                    field.classList.add('invalid');
+                    field.classList.remove('valid');
+                }
+            }
+        }
+        
+        // Form validation
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('[required]');
+            let isValid = true;
+            let errors = [];
+            
+            requiredFields.forEach(field => {
+                validateField(field);
+                if (field.value.trim() === '') {
+                    isValid = false;
+                    errors.push(`${field.labels?.[0]?.textContent || field.name || 'Field'} is required`);
+                }
+            });
+            
+            if (isValid) {
+                alert('✅ Form validation passed! All required fields are complete.');
+            } else {
+                alert('❌ Form validation errors:\n\n' + errors.join('\n'));
+            }
+            
+            return isValid;
+        }
+        
+        // Progress tracking
+        function updateProgress() {
+            const allInputs = document.querySelectorAll('input, select, textarea');
+            const requiredInputs = document.querySelectorAll('[required]');
+            let totalFields = allInputs.length;
+            let completedFields = 0;
+            let requiredCompleted = 0;
+            
+            allInputs.forEach(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    if (input.checked) completedFields++;
+                } else if (input.value.trim() !== '') {
+                    completedFields++;
+                }
+            });
+            
+            requiredInputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    requiredCompleted++;
+                }
+            });
+            
+            const overallProgress = Math.round((completedFields / totalFields) * 100);
+            const requiredProgress = Math.round((requiredCompleted / requiredInputs.length) * 100);
+            
+            document.getElementById('progressFill').style.width = overallProgress + '%';
+            document.getElementById('progressText').textContent = 
+                `${overallProgress}% Complete (${requiredProgress}% Required)`;
+            
+            // Update section statuses
+            updateSectionStatuses();
+        }
+        
+        // Update section completion statuses
+        function updateSectionStatuses() {
+            const sections = [
+                'pre-interview', 'budget-investigation', 'compliance-deficiency',
+                'maintenance', 'housekeeping', 'laundry', 'safety', 
+                'consolidated-role', 'resident-impact', 'financial-red-flags'
+            ];
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const inputs = section.querySelectorAll('input, select, textarea');
+                    let completed = 0;
+                    
+                    inputs.forEach(input => {
+                        if (input.type === 'checkbox' || input.type === 'radio') {
+                            if (input.checked) completed++;
+                        } else if (input.value.trim() !== '') {
+                            completed++;
+                        }
+                    });
+                    
+                    const percentage = inputs.length > 0 ? (completed / inputs.length) * 100 : 0;
+                    let statusClass, statusText;
+                    
+                    if (percentage >= 80) {
+                        statusClass = 'section-complete';
+                        statusText = 'Complete';
+                    } else if (percentage >= 30) {
+                        statusClass = 'section-partial';
+                        statusText = 'Partial';
+                    } else {
+                        statusClass = 'section-incomplete';
+                        statusText = 'Incomplete';
+                    }
+                    
+                    // Add or update status indicator
+                    let statusElement = section.querySelector('.section-status');
+                    if (!statusElement) {
+                        statusElement = document.createElement('span');
+                        statusElement.className = 'section-status';
+                        const heading = section.querySelector('h1, h2, h3');
+                        if (heading) {
+                            heading.appendChild(statusElement);
+                        }
+                    }
+                    
+                    statusElement.className = `section-status ${statusClass}`;
+                    statusElement.textContent = statusText;
+                }
+            });
+        }
+        
+        // Auto-save form data
+        function autoSaveFormData() {
+            const formData = gatherFormData();
+            try {
+                localStorage.setItem('cms_inspection_autosave', JSON.stringify(formData));
+                console.log('✅ Form auto-saved');
+            } catch (e) {
+                console.log('❌ Auto-save failed:', e);
+            }
+        }
+        
+        // Manual save
+        function saveFormData() {
+            const formData = gatherFormData();
+            const timestamp = new Date().toISOString();
+            
+            try {
+                localStorage.setItem('cms_inspection_manual_save', JSON.stringify({
+                    data: formData,
+                    timestamp: timestamp,
+                    facilityName: document.getElementById('facilityName')?.value || 'Unknown Facility'
+                }));
+                alert(`✅ Form saved successfully at ${new Date(timestamp).toLocaleString()}`);
+            } catch (e) {
+                alert('❌ Save failed: ' + e.message);
+            }
+        }
+        
+        // Load saved form data
+        function loadFormData() {
+            try {
+                // Try manual save first, then auto-save
+                let savedData = localStorage.getItem('cms_inspection_manual_save');
+                if (!savedData) {
+                    savedData = localStorage.getItem('cms_inspection_autosave');
+                }
+                
+                if (savedData) {
+                    const parsed = JSON.parse(savedData);
+                    const data = parsed.data || parsed; // Handle both formats
+                    
+                    fillFormData(data);
+                    updateProgress();
+                    
+                    if (parsed.timestamp) {
+                        console.log(`📂 Loaded data from ${new Date(parsed.timestamp).toLocaleString()}`);
+                    }
+                }
+            } catch (e) {
+                console.log('❌ Load failed:', e);
+            }
+        }
+        
+        // Gather all form data
+        function gatherFormData() {
+            const data = {};
+            const inputs = document.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                if (input.name || input.id) {
+                    const key = input.name || input.id;
+                    
+                    if (input.type === 'checkbox') {
+                        if (!data[key]) data[key] = [];
+                        if (input.checked) {
+                            data[key].push(input.value || 'checked');
+                        }
+                    } else if (input.type === 'radio') {
+                        if (input.checked) {
+                            data[key] = input.value;
+                        }
+                    } else {
+                        data[key] = input.value;
+                    }
+                }
+            });
+            
+            return data;
+        }
+        
+        // Fill form with data
+        function fillFormData(data) {
+            Object.keys(data).forEach(key => {
+                const element = document.querySelector(`[name="${key}"], #${key}`);
+                
+                if (element) {
+                    if (element.type === 'checkbox') {
+                        if (Array.isArray(data[key])) {
+                            const checkboxes = document.querySelectorAll(`[name="${key}"]`);
+                            checkboxes.forEach(cb => {
+                                cb.checked = data[key].includes(cb.value || 'checked');
+                            });
+                        } else {
+                            element.checked = data[key] === 'checked' || data[key] === true;
+                        }
+                    } else if (element.type === 'radio') {
+                        const radio = document.querySelector(`[name="${key}"][value="${data[key]}"]`);
+                        if (radio) radio.checked = true;
+                    } else {
+                        element.value = data[key];
+                    }
+                }
+            });
+        }
+        
+        // Load sample data for testing
+        function autoFillSample() {
+            const sampleData = {
+                facilityName: 'Sunset Manor Long-Term Care Facility',
+                inspectorName: 'Dr. Sarah Johnson, PE',
+                inspectorTitle: 'Senior Compliance Engineer',
+                inspectionType: 'complaint',
+                facilityBeds: '43',
+                bedsVerified: 'checked',
+                positionConfirmed: 'checked',
+                interviewSubject: 'James Martinez - Facilities & Operations Director',
+                rf1_notes: 'Director seemed unclear about maintenance vs. housekeeping boundaries',
+                rf2_notes: 'No written priority system observed',
+                rf3_notes: 'Admitted no backup coverage on weekends',
+                rf4_notes: 'Administrator approves all purchases over $50'
+            };
+            
+            fillFormData(sampleData);
+            updateProgress();
+            alert('📝 Sample data loaded! This is for demonstration purposes.');
+        }
+        
+        // Clear all form data
+        function clearForm() {
+            if (confirm('⚠️ Are you sure you want to clear all form data? This cannot be undone.')) {
+                const inputs = document.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        input.checked = false;
+                    } else if (input.type !== 'date' || input.id !== 'inspectionDate') {
+                        input.value = '';
+                    }
+                    input.classList.remove('valid', 'invalid');
+                });
+                
+                // Clear saved data
+                localStorage.removeItem('cms_inspection_autosave');
+                localStorage.removeItem('cms_inspection_manual_save');
+                
+                updateProgress();
+                alert('🗑️ Form cleared successfully');
+            }
+        }
+        
+        // Toggle control panel
+        function toggleControls() {
+            const panel = document.getElementById('formControls');
+            const button = panel.querySelector('.control-button.secondary');
+            
+            if (panel.style.right === '-220px') {
+                panel.style.right = '20px';
+                button.textContent = '⚙️ Hide Panel';
+            } else {
+                panel.style.right = '-220px';
+                button.textContent = '⚙️ Show Panel';
+            }
+        }
+        
+        // Enhanced print preparation - simplified approach
+        function preparePDFExport() {
+            // Validate form first
+            const isValid = validateForm();
+            
+            if (!isValid) {
+                const proceed = confirm('⚠️ Form has validation errors. Print anyway?');
+                if (!proceed) return;
+            }
+            
+            // Show simplified print instructions
+            const printInstructions = `
+📋 PRINT TO PDF INSTRUCTIONS:
+
+1. In the print dialog, set:
+   ✅ Destination: "Save as PDF"
+   ✅ Paper size: "Letter (8.5 x 11 in)"
+   ✅ Margins: "None" (IMPORTANT!)
+   ✅ Scale: "100%"
+   ✅ Check "Background graphics"
+
+2. Click "Save" and choose location
+
+Continue to print dialog?`;
+
+            const proceed = confirm(printInstructions);
+            if (!proceed) return;
+            
+            // Save current state
+            autoSaveFormData();
+            
+            // Simple print preparation - let CSS handle the rest
+            document.body.classList.add('pdf-export-mode');
+            
+            // Just trigger print - CSS will handle element visibility
+            setTimeout(() => {
+                window.print();
+            }, 100);
+        }
+        
+        // Simplified print event handlers
+        window.addEventListener('beforeprint', function() {
+            console.log('🖨️ Preparing for print...');
+            
+            // Simple approach: just ensure print elements are visible
+            const printHeader = document.querySelector('.print-header');
+            const printFooter = document.querySelector('.print-footer');
+            
+            if (printHeader) {
+                printHeader.style.display = 'flex';
+                printHeader.style.visibility = 'visible';
+            }
+            
+            if (printFooter) {
+                printFooter.style.display = 'flex';
+                printFooter.style.visibility = 'visible';
+            }
+            
+            // Hide control panel
+            const controlPanel = document.getElementById('formControls');
+            if (controlPanel) {
+                controlPanel.style.display = 'none';
+            }
+            
+            console.log('✅ Print preparation complete');
+        });
+        
+        window.addEventListener('afterprint', function() {
+            console.log('📄 Restoring after print...');
+            
+            // Hide print elements on screen
+            const printHeader = document.querySelector('.print-header');
+            const printFooter = document.querySelector('.print-footer');
+            
+            if (printHeader) {
+                printHeader.style.display = 'none';
+            }
+            
+            if (printFooter) {
+                printFooter.style.display = 'none';
+            }
+            
+            // Restore control panel
+            const controlPanel = document.getElementById('formControls');
+            if (controlPanel) {
+                controlPanel.style.display = 'block';
+            }
+            
+            console.log('✅ Screen restoration complete');
+        });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+P for print
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                preparePDFExport();
+            }
+            
+            // Ctrl+S for save
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                saveFormData();
+            }
+            
+            // Ctrl+Z for clear last (if no other action)
+            if (e.ctrlKey && e.key === 'z' && !document.activeElement.matches('input, textarea')) {
+                e.preventDefault();
+                if (confirm('Clear the last field entry?')) {
+                    const inputs = Array.from(document.querySelectorAll('input, select, textarea'))
+                        .filter(input => input.value !== '');
+                    if (inputs.length > 0) {
+                        const lastInput = inputs[inputs.length - 1];
+                        lastInput.value = '';
+                        lastInput.focus();
+                        updateProgress();
+                    }
+                }
+            }
+        });
+        
+        // Page number tracking for screen view
+        function updatePageNumber() {
+            const pageElements = document.querySelectorAll('#page-number, #footer-page');
+            pageElements.forEach(el => {
+                const estimatedPage = Math.ceil(window.scrollY / (window.innerHeight * 0.8)) + 1;
+                el.textContent = estimatedPage;
+            });
+        }
+        
+        window.addEventListener('scroll', updatePageNumber);
+        
+        // Initialize everything when page loads
+        window.addEventListener('load', function() {
+            initializeForm();
+            updatePageNumber();
+            
+            // Make sure print date is set
+            const currentDate = new Date().toLocaleDateString();
+            const printDateElement = document.getElementById('current-date-print');
+            if (printDateElement) {
+                printDateElement.textContent = currentDate;
+            }
+            
+            console.log('📋 CMS Inspection Checklist loaded successfully');
+        });
+        
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function(e) {
+            autoSaveFormData();
+        });
+    </script>
+</body>
+</html>
